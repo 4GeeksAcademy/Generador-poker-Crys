@@ -1,5 +1,87 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-body{
-    background: white;
+body {
+  /* Fondo DE LA MESA */
+  background: radial-gradient(circle at center, #0a5f2c 0%, #064a22 70%, #033618 100%);
+
+  /* DISEÑO PARA LAS CAJAS GENERAL */
+  display: flex;
+  flex-direction: column;   /* carta arriba, botón abajo */
+  justify-content: center;  /* centrado vertical */
+  align-items: center;      /* centrado horizontal */
+  min-height: 100vh;        /* altura total */
+  padding-top: 40px;        /* respiro extra arriba */
+  margin: 0;                /* eliminar margen por defecto del body */
+}
+
+/* Carta BASE*/
+.card {
+  width: 320px;
+  height: 420px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35); /* presencia ejecutiva */
+}
+
+
+/* BOTON DEL GAME  */
+.action-btn {
+  margin-top: 24px;
+  padding: 16px 36px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  
+  /* Gradiente cálido de lujo */
+  background: linear-gradient(135deg, #ff8f1f, #ff5c2b);
+
+  border: none;
+  border-radius: 50px;          /* pill button → look moderno */
+  cursor: pointer;
+  transition: 0.25s ease;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow dinámico al pasar el mouse */
+.action-btn:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.18);
+  box-shadow: 0 12px 32px rgba(255, 92, 43, 0.55);
+}
+
+/* Efecto: anillo expansivo explosivo */
+.action-btn:active::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+
+  /* brillo base */
+  background: rgba(255,255,255,0.85);
+
+  border-radius: 50%;
+  transform: translate(-50%, -50%) scale(1);
+
+  animation: boom 0.55s ease-out forwards;
+}
+
+/* Animación de expansión */
+@keyframes boom {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.9;
+  }
+  70% {
+    transform: translate(-50%, -50%) scale(32);
+    opacity: 0.4;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(55);
+    opacity: 0;
+  }
 }

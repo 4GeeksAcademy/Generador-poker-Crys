@@ -4,62 +4,152 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 /* =========================================================
-   GLOBAL RESET — Reiniciar márgenes y box model
+   GLOBAL RESET
    ========================================================= */
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Incluye padding dentro de width/height */
+  box-sizing: border-box;
 }
 
 html, body {
   width: 100%;
   height: 100%;
+  font-family: 'Poppins', sans-serif;
 }
 
 /* =========================================================
    BODY — Fondo verde estilo casino y layout general
    ========================================================= */
 body {
-  font-family: 'Poppins', sans-serif;
   background: linear-gradient(135deg, #006400, #228B22);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding-top: 60px;
-  padding-bottom: 120px; /* Evita que el footer tape contenido */
+  padding-top: 35px;   /* espacio superior */
+  padding-bottom: 120px; /* evita que el footer tape contenido */
 }
 
 /* =========================================================
-   CARD — Carta estilo casino, tamaños según dispositivo
+   TÍTULO PRINCIPAL — Glow pulsante estilo casino
+   ========================================================= */
+.casino-title {
+  font-family: 'Luckiest Guy', cursive;
+  font-size: 3.5rem; /* Más grande y llamativo */
+  text-align: center;
+  margin-bottom: 50px; /* separa del contenido de la carta */
+
+  color: #d60000; /* rojo casino */
+  -webkit-text-stroke: 2px #e7b400; /* contorno dorado */
+  text-shadow:
+    0 0 6px rgba(255, 200, 0, 0.8),
+    0 0 12px rgba(255, 180, 0, 0.8),
+    0 0 20px rgba(255, 150, 0, 0.7),
+    0 0 40px rgba(255, 120, 0, 0.5);
+  animation: titleGlow 1.8s infinite ease-in-out;
+  letter-spacing: 2px;
+  font-weight: 900;
+}
+
+/* Animación glow del título */
+@keyframes titleGlow {
+  0%, 100% { text-shadow: 0 0 6px rgba(255,200,0,0.7), 0 0 12px rgba(255,180,0,0.6), 0 0 20px rgba(255,150,0,0.5), 0 0 30px rgba(255,120,0,0.4);}
+  50% { text-shadow: 0 0 10px rgba(255,220,0,1), 0 0 20px rgba(255,190,0,1), 0 0 35px rgba(255,150,0,0.9), 0 0 60px rgba(255,120,0,0.7);}
+}
+
+/* =========================================================
+   CONTENEDOR CARD + CONTROLES
+   ========================================================= */
+.card-container {
+  display: flex;
+  align-items: center; /* centra verticalmente todos los elementos */
+  justify-content: flex-start;
+  gap: 40px; /* espacio horizontal entre panel, carta y botón */
+  width: 100%;
+  max-width: 1200px;
+  margin-left: 90px;
+}
+
+/* =========================================================
+   PANEL IZQUIERDO — CONTROLES
+   ========================================================= */
+.card-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.control-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.6rem;
+  color: #FFD700;
+  text-shadow: 0 0 8px #FFD700, 0 0 16px #FF8C00;
+  margin-bottom: 12px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+.control-label {
+  font-family: 'Orbitron', sans-serif;
+  color: #FFA500;
+  text-shadow: 0 0 6px #FFD700;
+  margin-top: 8px;
+  margin-bottom: 4px;
+}
+
+.card-controls input {
+  width: 120px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 2px solid #FFD700;
+  background: linear-gradient(135deg, #1a1a1a, #000000);
+  color: #FFD700;
+  font-weight: bold;
+  outline: none;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: 0 0 4px #FFD700; /* glow inicial */
+  animation: inputGlow 2s infinite alternate;
+}
+
+.card-controls input:focus {
+  box-shadow: 0 0 12px #FFD700, 0 0 24px #FF8C00;
+  border-color: #FF8C00;
+}
+
+/* Glow pulsante inputs */
+@keyframes inputGlow {
+  0% { box-shadow: 0 0 4px #FFD700; }
+  50% { box-shadow: 0 0 12px #FFD700, 0 0 24px #FF8C00; }
+  100% { box-shadow: 0 0 4px #FFD700; }
+}
+
+/* =========================================================
+   CARTA — centrada y glow
    ========================================================= */
 .card {
-  width: 300px;           /* Tablet estándar ≥768px */
-  height: 420px;
+  width: 300px;
+  height: 432px;
   background: #ffffff;
   border-radius: 16px;
   border: 4px solid #FFD700;
-  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+  box-shadow: 0 0 15px rgba(255,215,0,0.5);
   position: relative;
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition: all 0.25s ease;
 }
 
-/* Hover — agrandar y dar brillo */
 .card:hover {
   transform: scale(1.05) rotate(1deg);
-  border-color: #FFD700;
-  box-shadow:
-    0 0 25px #FFD700,
-    0 0 50px #FF8C00,
-    0 0 100px #FF4500;
+  box-shadow: 0 0 25px #FFD700, 0 0 50px #FF8C00, 0 0 100px #FF4500;
 }
 
 /* =========================================================
-   PARTÍCULAS — Luces estilo casino alrededor de la carta
+   PARTÍCULAS — Luces alrededor de la carta
    ========================================================= */
-.card::before,
-.card::after {
+.card::before, .card::after {
   content: "";
   position: absolute;
   width: 6px;
@@ -70,143 +160,85 @@ body {
   pointer-events: none;
 }
 
-.card::before {
-  top: -15px;
-  left: 40%;
-}
+.card::before { top: -15px; left: 40%; }
+.card::after { bottom: -15px; right: 35%; animation-delay: 0.9s; }
 
-.card::after {
-  bottom: -15px;
-  right: 35%;
-  animation-delay: 0.9s;
-}
-
-@keyframes sparkle {
-  0%   { transform: scale(0.5); opacity: 0.7; }
-  50%  { transform: scale(1.3); opacity: 1; }
-  100% { transform: scale(0.5); opacity: 0.6; }
-}
+@keyframes sparkle { 0% {transform: scale(0.5);opacity:0.7;} 50% {transform:scale(1.3);opacity:1;} 100% {transform:scale(0.5);opacity:0.6;} }
 
 /* =========================================================
-   BOTÓN PREMIUM — Elegante, equilibrado, oscuro + dorado
+   BOTÓN — Lado derecho centrado verticalmente, icono deditos cruzados
    ========================================================= */
 .action-btn {
-  margin-top: 16px;
-  padding: 14px 36px;
+  padding: 20px 50px;
   font-size: 18px;
   font-weight: 700;
   font-family: 'Orbitron', sans-serif;
   color: #FFD700;
-
-  background: linear-gradient(135deg, #000000, #1a1a1a, #000000);
+  background: linear-gradient(135deg,#000,#1a1a1a,#000);
   border: 3px solid #FFD700;
-  border-radius: 40px;
+  border-radius: 50px;
   cursor: pointer;
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
-  transition: all 0.3s ease;
-
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 10px;
+  transition: all 0.3s ease;
 }
 
+.action-btn i { color: #FFD700; font-size: 22px; }
+
+/* Hover estilo casino */
 .action-btn:hover {
   transform: translateY(-3px);
   border-color: #FFA500;
-  box-shadow:
-    0 0 20px #FFD700,
-    0 0 40px #FF8C00,
-    0 0 60px #FF8C00;
+  box-shadow: 0 0 20px #FFD700,0 0 40px #FF8C00,0 0 60px #FF8C00;
 }
 
-.action-btn i {
-  color: #FFD700;
-  font-size: 20px;
-}
-
-.action-btn:active::after {
+/* Liquid effect on click */
+.action-btn::after {
   content: "";
   position: absolute;
-  left: 50%;
-  top: 50%;
-  width: 12px;
-  height: 12px;
-  background: radial-gradient(circle, #FFD700 0%, #FF8C00 60%, rgba(255,140,0,0) 100%);
-  border-radius: 50%;
-  transform: translate(-50%, -50%) scale(1);
-  animation: boom 0.6s ease-out forwards;
+  top:0;
+  left:-100%;
+  width:100%;
+  height:100%;
+  background: radial-gradient(circle, rgba(255,215,0,0.4), rgba(255,140,0,0.2));
+  transform: skewX(-20deg);
+  transition: 0.5s ease;
+  z-index:0;
 }
 
-@keyframes boom {
-  0%   { transform: translate(-50%, -50%) scale(1); opacity: 0.9; }
-  50%  { transform: scale(15); opacity: 0.6; }
-  100% { transform: scale(40); opacity: 0; }
-}
+.action-btn:active::after { left:0; }
 
 /* =========================================================
-   FOOTER — Siempre visible abajo
+   FOOTER — importante
    ========================================================= */
 footer {
   position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
-  padding: 12px;
-  font-size: 13px;
-  background: rgba(0, 0, 0, 0.4);
+  bottom:0;
+  left:0;
+  width:100%;
+  text-align:center;
+  padding:12px;
+  font-size:13px;
+  background: rgba(0,0,0,0.4);
   backdrop-filter: blur(6px);
-  color: #ffffff;
+  color: #fff;
+}
+
+/* Resaltar palabra CODE */
+footer .footer-code {
+  color: #FFD700;
+  font-weight: 900;
+  text-shadow: 0 0 6px #FFD700, 0 0 12px #FF8C00, 0 0 20px #FFA500;
 }
 
 /* =========================================================
-   RESPONSIVE — Tamaños exactos por dispositivo
+   RESPONSIVE — Escalado proporcional
    ========================================================= */
-
-/* Tablet pequeño / phablet */
-@media (max-width: 767px) {
-  .card {
-    width: 270px;
-    height: 378px;
-  }
-}
-
-/* Smartphone grande (≥480px) */
-@media (max-width: 767px) and (min-width: 480px) {
-  .card {
-    width: 240px;
-    height: 336px;
-  }
-}
-
-/* Smartphone mediano */
-@media (max-width: 479px) and (min-width: 360px) {
-  .card {
-    width: 210px;
-    height: 294px;
-  }
-}
-
-/* Smartphone pequeño (<360px) */
-@media (max-width: 359px) {
-  .card {
-    width: 180px;
-    height: 252px;
-  }
-}
-
-/* Ajustes botones y footer en móvil */
-@media (max-width: 768px) {
-  .action-btn {
-    font-size: 16px;
-    padding: 12px 28px;
-  }
-
-  footer {
-    font-size: 11px;
-    padding: 10px;
-  }
+@media(max-width:767px){
+  .card-container{flex-direction:column;align-items:center;gap:16px;}
+  .card-controls{flex-direction:row;justify-content:center;gap:12px;margin-bottom:16px;}
 }

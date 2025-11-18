@@ -8,7 +8,8 @@
   <title>Lucky Card</title>
 
   <!-- Iconos -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
 
   <!-- Fuente de lujo -->
@@ -20,17 +21,44 @@
 
 <body>
 
-  <!-- Carta -->
-  <div class="card"></div>
+ 
+  <!-- TÍTULO PRINCIPAL -->
+  <h1 class="casino-title">
+    <span style="color:#d60000;">&#9829;</span> <!-- Corazón -->
+    <span style="color:#000000;">&#9824;</span> <!-- Pica negra -->
+    Lucky Card
+    <span style="color:#000000;">&#9827;</span> <!-- Trébol negro -->
+    <span style="color:#d60000;">&#9830;</span> <!-- Diamante rojo -->
+  </h1>
 
-  <!-- Botón -->
-  <button class="action-btn">
-    <i class="bi bi-suit-club-fill"></i> Lucky
-  </button>
+  <!-- CONTENEDOR PRINCIPAL -->
+  <div class="card-container">
 
-  <!-- Footer fijo -->
-  <footer class="footer">
-    © 2025 Crystian Ariel Carmona Trujillo — created with ❤️ and <b>code</b>.
+    <!-- PANEL IZQUIERDO — CONTROLES -->
+    <div class="card-controls">
+      <div class="control-title">Play with your card size!</div>
+
+      <label class="control-label" for="card-width">Width</label>
+      <input type="number" id="card-width" placeholder="px">
+
+      <label class="control-label" for="card-height">Height</label>
+      <input type="number" id="card-height" placeholder="px">
+    </div>
+
+    <!-- CARTA -->
+    <div class="card"></div>
+
+    <!-- BOTÓN LUCKY — LADO DERECHO -->
+    <button class="action-btn">
+      <i class="fa-solid fa-hand-fist"></i> Lucky
+    </button>
+
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Crystian Ariel Carmona Trujillo — created with ❤️ and
+    <span class="footer-code"><b>CODE</b></span>.
   </footer>
 
   <!-- JS -->

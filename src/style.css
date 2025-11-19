@@ -1,244 +1,367 @@
-/* =========================================================
-   @import — Importar Bootstrap desde npm
-   ========================================================= */
+
 @import "bootstrap/dist/css/bootstrap.min.css";
 
-/* =========================================================
-   GLOBAL RESET
-   ========================================================= */
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
 }
 
-html, body {
-  width: 100%;
-  height: 100%;
-  font-family: 'Poppins', sans-serif;
-}
-
-/* =========================================================
-   BODY — Fondo verde estilo casino y layout general
-   ========================================================= */
+html,
 body {
-  background: linear-gradient(135deg, #006400, #228B22);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding-top: 35px;   /* espacio superior */
-  padding-bottom: 120px; /* evita que el footer tape contenido */
+   width: 100%;
+   height: 100%;
+   font-family: 'Poppins', sans-serif;
 }
 
-/* =========================================================
-   TÍTULO PRINCIPAL — Glow pulsante estilo casino
-   ========================================================= */
+/* ====================== BODY ====================== */
+body {
+   background: linear-gradient(135deg, #006400, #228B22);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: flex-start;
+   padding-top: 35px;
+   padding-bottom: 120px;
+}
+
+/* TITULO del CASINO */
 .casino-title {
-  font-family: 'Luckiest Guy', cursive;
-  font-size: 3.5rem; /* Más grande y llamativo */
-  text-align: center;
-  margin-bottom: 50px; /* separa del contenido de la carta */
-
-  color: #d60000; /* rojo casino */
-  -webkit-text-stroke: 2px #e7b400; /* contorno dorado */
-  text-shadow:
-    0 0 6px rgba(255, 200, 0, 0.8),
-    0 0 12px rgba(255, 180, 0, 0.8),
-    0 0 20px rgba(255, 150, 0, 0.7),
-    0 0 40px rgba(255, 120, 0, 0.5);
-  animation: titleGlow 1.8s infinite ease-in-out;
-  letter-spacing: 2px;
-  font-weight: 900;
+   font-family: 'Luckiest Guy', cursive;
+   font-size: 3.5rem;
+   text-align: center;
+   margin-bottom: 50px;
+   color: #d60000;
+   -webkit-text-stroke: 2px #e7b400;
+   text-shadow: 0 0 6px rgba(255, 200, 0, 0.8), 0 0 12px rgba(255, 180, 0, 0.8), 0 0 20px rgba(255, 150, 0, 0.7), 0 0 40px rgba(255, 120, 0, 0.5);
+   animation: titleGlow 1.8s infinite ease-in-out;
+   letter-spacing: 2px;
+   font-weight: 900;
 }
 
-/* Animación glow del título */
 @keyframes titleGlow {
-  0%, 100% { text-shadow: 0 0 6px rgba(255,200,0,0.7), 0 0 12px rgba(255,180,0,0.6), 0 0 20px rgba(255,150,0,0.5), 0 0 30px rgba(255,120,0,0.4);}
-  50% { text-shadow: 0 0 10px rgba(255,220,0,1), 0 0 20px rgba(255,190,0,1), 0 0 35px rgba(255,150,0,0.9), 0 0 60px rgba(255,120,0,0.7);}
+
+   0%,
+   100% {
+      text-shadow: 0 0 6px rgba(255, 200, 0, 0.7), 0 0 12px rgba(255, 180, 0, 0.6), 0 0 20px rgba(255, 150, 0, 0.5), 0 0 30px rgba(255, 120, 0, 0.4);
+   }
+
+   50% {
+      text-shadow: 0 0 10px rgba(255, 220, 0, 1), 0 0 20px rgba(255, 190, 0, 1), 0 0 35px rgba(255, 150, 0, 0.9), 0 0 60px rgba(255, 120, 0, 0.7);
+   }
 }
 
-/* =========================================================
-   CONTENEDOR CARD + CONTROLES
-   ========================================================= */
+/* Colores de símbolos */
+.corazon,
+.diamante {
+   color: #d60000;
+}
+
+.pica,
+.trebol {
+   color: #000000;
+}
+
+/* CONTENEDOR */
 .card-container {
-  display: flex;
-  align-items: center; /* centra verticalmente todos los elementos */
-  justify-content: flex-start;
-  gap: 40px; /* espacio horizontal entre panel, carta y botón */
-  width: 100%;
-  max-width: 1200px;
-  margin-left: 90px;
+   display: flex;
+   align-items: center;
+   justify-content: flex-start;
+   gap: 40px;
+   width: 100%;
+   max-width: 1200px;
+   margin-left: 90px;
 }
 
-/* =========================================================
-   PANEL IZQUIERDO — CONTROLES
-   ========================================================= */
+/* ==Control de anchura y altura == */
 .card-controls {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 12px;
 }
 
 .control-title {
-  font-family: 'Orbitron', sans-serif;
-  font-size: 1.6rem;
-  color: #FFD700;
-  text-shadow: 0 0 8px #FFD700, 0 0 16px #FF8C00;
-  margin-bottom: 12px;
-  text-align: center;
-  letter-spacing: 1px;
+   font-family: 'Orbitron', sans-serif;
+   font-size: 1.6rem;
+   color: #FFD700;
+   text-shadow: 0 0 8px #FFD700, 0 0 16px #FF8C00;
+   margin-bottom: 12px;
+   text-align: center;
+   letter-spacing: 1px;
 }
 
 .control-label {
-  font-family: 'Orbitron', sans-serif;
-  color: #FFA500;
-  text-shadow: 0 0 6px #FFD700;
-  margin-top: 8px;
-  margin-bottom: 4px;
+   font-family: 'Orbitron', sans-serif;
+   color: #FFA500;
+   text-shadow: 0 0 6px #FFD700;
+   margin-top: 8px;
+   margin-bottom: 4px;
 }
 
 .card-controls input {
-  width: 120px;
-  padding: 8px 12px;
-  border-radius: 12px;
-  border: 2px solid #FFD700;
-  background: linear-gradient(135deg, #1a1a1a, #000000);
-  color: #FFD700;
-  font-weight: bold;
-  outline: none;
-  transition: all 0.3s ease;
-  text-align: center;
-  box-shadow: 0 0 4px #FFD700; /* glow inicial */
-  animation: inputGlow 2s infinite alternate;
+   width: 120px;
+   padding: 8px 12px;
+   border-radius: 12px;
+   border: 2px solid #FFD700;
+   background: linear-gradient(135deg, #1a1a1a, #000);
+   color: #FFD700;
+   font-weight: bold;
+   outline: none;
+   text-align: center;
+   transition: all 0.3s ease;
+   box-shadow: 0 0 4px #FFD700;
+   animation: inputGlow 2s infinite alternate;
 }
 
 .card-controls input:focus {
-  box-shadow: 0 0 12px #FFD700, 0 0 24px #FF8C00;
-  border-color: #FF8C00;
+   box-shadow: 0 0 12px #FFD700, 0 0 24px #FF8C00;
+   border-color: #FF8C00;
 }
 
-/* Glow pulsante inputs */
 @keyframes inputGlow {
-  0% { box-shadow: 0 0 4px #FFD700; }
-  50% { box-shadow: 0 0 12px #FFD700, 0 0 24px #FF8C00; }
-  100% { box-shadow: 0 0 4px #FFD700; }
+   0% {
+      box-shadow: 0 0 4px #FFD700;
+   }
+
+   50% {
+      box-shadow: 0 0 12px #FFD700, 0 0 24px #FF8C00;
+   }
+
+   100% {
+      box-shadow: 0 0 4px #FFD700;
+   }
 }
 
-/* =========================================================
-   CARTA — centrada y glow
-   ========================================================= */
+/* =Carta estilos = */
 .card {
-  width: 300px;
-  height: 432px;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 4px solid #FFD700;
-  box-shadow: 0 0 15px rgba(255,215,0,0.5);
-  position: relative;
-  transition: all 0.25s ease;
+   width: 300px;
+   height: 432px;
+   border-radius: 16px;
+   border: 4px solid #FFD700;
+   box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+   position: relative;
+   overflow: hidden;
+   transform-style: preserve-3d;
+   transition: transform 1s cubic-bezier(.34, 1.56, .64, 1);
+   background-color: #ffffff;
+}
+/* =rotacion de la card = */
+.flip-card {
+   transform: rotateY(360deg);
 }
 
 .card:hover {
-  transform: scale(1.05) rotate(1deg);
-  box-shadow: 0 0 25px #FFD700, 0 0 50px #FF8C00, 0 0 100px #FF4500;
+   transform: scale(1.05) rotate(1deg);
+   box-shadow: 0 0 25px #FFD700, 0 0 50px #FF8C00, 0 0 100px #FF4500;
 }
 
-/* =========================================================
-   PARTÍCULAS — Luces alrededor de la carta
-   ========================================================= */
-.card::before, .card::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 6px;
-  background: radial-gradient(circle, #FFD700 0%, #FF8C00 60%, rgba(255,140,0,0) 100%);
-  border-radius: 50%;
-  animation: sparkle 1.8s infinite ease-in-out;
-  pointer-events: none;
+/* ==Parte TRASERA DE LA CARTA == */
+.reverso {
+   position: absolute;
+   inset: 0;
+   background: #c54902;
+   border-radius: 16px;
+   border: 6px solid #ffffff;
+   z-index: 1;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><g fill='white' opacity='0.15'><circle cx='50' cy='45' r='18'/><circle cx='40' cy='35' r='6'/><circle cx='60' cy='35' r='6'/><path d='M35 60 C40 75 60 75 65 60'/></g></svg>");
+   background-repeat: repeat;
+   background-position: center;
+   background-size: 40%;
 }
 
-.card::before { top: -15px; left: 40%; }
-.card::after { bottom: -15px; right: 35%; animation-delay: 0.9s; }
+/* ===Cuadro contenedor de numeros y letras=== */
+.center-value {
+   font-family: "Old English Text MT", serif;
+   font-size: 120px;
+   text-align: center;
+   border: 5px solid currentColor;
+   border-top-left-radius: 0px;
+   border-bottom-right-radius: 0px;
+   border-top-right-radius: 20px;
+   border-bottom-left-radius: 20px;
+   padding: 20px 20px;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 2;
+}
 
-@keyframes sparkle { 0% {transform: scale(0.5);opacity:0.7;} 50% {transform:scale(1.3);opacity:1;} 100% {transform:scale(0.5);opacity:0.6;} }
+/* ==Esquina numero y pinta== */
+.corner-suit {
+   font-size: 32px;
+   font-weight: bold;
+   width: 70px;
+   height: 70px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   position: absolute;
+   background: white;
+   border-radius: -12px;
 
-/* =========================================================
-   BOTÓN — Lado derecho centrado verticalmente, icono deditos cruzados
-   ========================================================= */
+   z-index: 2;
+}
+
+.corner-suit.top {
+   top: 8px;
+   left: 8px;
+}
+
+.corner-suit.bottom {
+   bottom: 8px;
+   right: 8px;
+   transform: rotate(180deg);
+}
+
+/* ===BOTON=== */
 .action-btn {
-  padding: 20px 50px;
-  font-size: 18px;
-  font-weight: 700;
-  font-family: 'Orbitron', sans-serif;
-  color: #FFD700;
-  background: linear-gradient(135deg,#000,#1a1a1a,#000);
-  border: 3px solid #FFD700;
-  border-radius: 50px;
-  cursor: pointer;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: all 0.3s ease;
+   padding: 20px 50px;
+   font-size: 18px;
+   font-weight: 700;
+   font-family: 'Orbitron', sans-serif;
+   color: #FFD700;
+   background: linear-gradient(135deg, #000, #1a1a1a, #000);
+   border: 3px solid #FFD700;
+   border-radius: 50px;
+   cursor: pointer;
+   position: relative;
+   overflow: hidden;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   gap: 10px;
+   transition: all 0.3s ease;
 }
 
-.action-btn i { color: #FFD700; font-size: 22px; }
+.action-btn i {
+   color: #FFD700;
+   font-size: 22px;
+}
 
-/* Hover estilo casino */
 .action-btn:hover {
-  transform: translateY(-3px);
-  border-color: #FFA500;
-  box-shadow: 0 0 20px #FFD700,0 0 40px #FF8C00,0 0 60px #FF8C00;
+   transform: translateY(-3px);
+   border-color: #FFA500;
+   box-shadow: 0 0 20px #FFD700, 0 0 40px #FF8C00, 0 0 60px #FF8C00;
 }
 
-/* Liquid effect on click */
 .action-btn::after {
-  content: "";
-  position: absolute;
-  top:0;
-  left:-100%;
-  width:100%;
-  height:100%;
-  background: radial-gradient(circle, rgba(255,215,0,0.4), rgba(255,140,0,0.2));
-  transform: skewX(-20deg);
-  transition: 0.5s ease;
-  z-index:0;
+   content: "";
+   position: absolute;
+   top: 0;
+   left: -100%;
+   width: 100%;
+   height: 100%;
+   background: radial-gradient(circle, rgba(255, 215, 0, 0.4), rgba(255, 140, 0, 0.2));
+   transform: skewX(-20deg);
+   transition: 0.5s ease;
+   z-index: 0;
 }
 
-.action-btn:active::after { left:0; }
+.action-btn:active::after {
+   left: 0;
+}
 
-/* =========================================================
-   FOOTER — importante
-   ========================================================= */
+/* === JOKER === */
+.joker-value {
+   font-family: 'Luckiest Guy', cursive;
+   font-size: 80px;
+   color: #d60000;
+   text-shadow: 0 0 8px #FFD700, 0 0 16px #FF8C00;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   z-index: 3;
+}
+
+.joker-icon {
+   font-size: 50px;
+   position: absolute;
+   top: 16px;
+   right: 16px;
+   z-index: 3;
+}
+
+/* ===Mensaje y animacion de la carta JOKER === */
+.joker-message {
+   position: fixed;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%) scale(0.1);
+   font-size: 40px;
+   font-family: 'Orbitron', sans-serif;
+   color: #FFD700;
+   text-shadow: 0 0 10px #FF4500, 0 0 20px #FF8C00;
+   animation: jokerPop 2s ease-out forwards;
+   z-index: 99999;
+}
+
+@keyframes jokerPop {
+   0% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.1);
+   }
+
+   40% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.5);
+   }
+
+   60% {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.5);
+   }
+
+   100% {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.2);
+   }
+}
+
+/* ====FOOTER posicion y letra CODE ===== */
 footer {
-  position: fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  text-align:center;
-  padding:12px;
-  font-size:13px;
-  background: rgba(0,0,0,0.4);
-  backdrop-filter: blur(6px);
-  color: #fff;
+   position: fixed;
+   bottom: 0;
+   left: 0;
+   width: 100%;
+   text-align: center;
+   padding: 12px;
+   font-size: 13px;
+   background: rgba(0, 0, 0, 0.4);
+   backdrop-filter: blur(6px);
+   color: #fff;
 }
 
-/* Resaltar palabra CODE */
 footer .footer-code {
-  color: #FFD700;
-  font-weight: 900;
-  text-shadow: 0 0 6px #FFD700, 0 0 12px #FF8C00, 0 0 20px #FFA500;
+   color: #FFD700;
+   font-weight: 900;
+   text-shadow: 0 0 6px #FFD700, 0 0 12px #FF8C00, 0 0 20px #FFA500;
 }
 
-/* =========================================================
-   RESPONSIVE — Escalado proporcional
-   ========================================================= */
-@media(max-width:767px){
-  .card-container{flex-direction:column;align-items:center;gap:16px;}
-  .card-controls{flex-direction:row;justify-content:center;gap:12px;margin-bottom:16px;}
+/* == Responsive para todo lo dipositivos == */
+@media(max-width:767px) {
+   .card-container {
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+   }
+
+   .card-controls {
+      flex-direction: row;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 16px;
+   }
+
+   .center-value {
+      font-size: 72px;
+      padding: 6px 12px;
+   }
 }
